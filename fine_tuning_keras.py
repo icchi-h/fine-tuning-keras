@@ -107,8 +107,10 @@ if __name__ == '__main__':
     nb_train_samples = sum(train_img_counts)
     nb_val_samples = sum(val_img_counts)
     nb_epoch = 50
+    nb_epoch = 2
     min_nb_epoch = 10
     batch_size = 50
+    batch_size = 1
     if (batch_size > nb_train_samples):
         print("Error: バッチサイズが学習サンプル数よりも大きくなっています")
         sys.exit(1)
@@ -120,7 +122,16 @@ if __name__ == '__main__':
 
 
     # Set callbacks
-    cb_es = callbacks.EarlyStopping(monitor='val_loss', patience=min_nb_epoch)
+    cb_earlystopping = callbacks.EarlyStopping(monitor='val_loss', patience=min_nb_epoch)
+    # cb_tensorboard = callbacks.TensorBoard(
+    #     log_dir=FLAGS.output_path+'tb-logs'+start_time,
+    #     histogram_freq=1,
+    #     write_graph=True,
+    #     write_grads=True,
+    #     write_images=True,
+    #     embeddings_freq=1,
+    #     embeddings_layer_names=None,
+    #     embeddings_metadata=None)
 
     # VGG16モデルと学習済み重みをロード
     # Fully-connected層（FC）はいらないのでinclude_top=False）
@@ -181,7 +192,8 @@ if __name__ == '__main__':
         nb_epoch=nb_epoch,
         validation_data=validation_generator,
         nb_val_samples=nb_val_samples,
-        callbacks=[cb_es])
+        callbacks=[cb_earlystopping])
+        # callbacks=[cb_earlystopping, cb_tensorboard])
 
     # Output model
     # model.save_weights(os.path.join(FLAGS.output_path, 'my-finetuning.h5'))
