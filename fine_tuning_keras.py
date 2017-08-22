@@ -21,6 +21,7 @@ import argparse
 import glob
 import sys
 from datetime import datetime
+import numpy as np
 
 
 #from smallcnn import save_history
@@ -43,7 +44,7 @@ def get_classes_img_count(path):
 
     # get classes
     classes = []
-    for item in os.listdir(path):
+    for item in sorted(os.listdir(path)):
         if os.path.isdir(path + item):
             classes.append(item)
 
