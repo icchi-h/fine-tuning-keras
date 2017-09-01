@@ -121,11 +121,10 @@ if __name__ == '__main__':
     img_rows, img_cols = 150, 150
     channels = 3
 
-    start_time = datetime.now().strftime("%Y%m%d%H%M%S")
-
 
     # Set callbacks
     cb_earlystopping = callbacks.EarlyStopping(monitor='val_loss', patience=min_nb_epoch)
+    cb_modelCP = callbacks.ModelCheckpoint(os.path.join(FLAGS.output_path, "cb_"+FLAGS.output_model_name), monitor='val_loss', save_best_only=True)
     # cb_tensorboard = callbacks.TensorBoard(
     #     log_dir=FLAGS.output_path+'tb-logs'+start_time,
     #     histogram_freq=1,
@@ -195,7 +194,7 @@ if __name__ == '__main__':
         nb_epoch=nb_epoch,
         validation_data=validation_generator,
         nb_val_samples=nb_val_samples,
-        callbacks=[cb_earlystopping])
+        callbacks=[cb_earlystopping, cb_modelCP])
         # callbacks=[cb_earlystopping, cb_tensorboard])
 
     # Output model
