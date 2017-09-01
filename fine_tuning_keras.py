@@ -66,6 +66,8 @@ def get_image_size(path):
 
 if __name__ == '__main__':
 
+    start_time = datetime.now().strftime("%Y%m%d-%H%M%S")
+
     # Command line arg setting
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -86,7 +88,7 @@ if __name__ == '__main__':
         "--output_path",
         "-o",
         type=str,
-        default="./dataset/results/",
+        default="./dataset/results/" + start_time + "/",
         help="Output path"
     )
     parser.add_argument(
