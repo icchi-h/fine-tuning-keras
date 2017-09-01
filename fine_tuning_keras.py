@@ -7,7 +7,7 @@ Reference: http://aidiary.hatenablog.com/entry/20170131/1485864665
 """
 
 __author__ = "Haruyuki Ichino <mail@icchi.me>"
-__version__ = "1.1"
+__version__ = "1.2"
 __date__    = "2017/08/21"
 
 import os
