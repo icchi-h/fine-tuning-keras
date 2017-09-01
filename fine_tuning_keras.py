@@ -51,7 +51,7 @@ def get_classes_img_count(path):
     # get img count each class
     img_counts = []
     for c in classes:
-        images = glob.glob(path + c + '/*.*g')
+        images = glob.glob(path + c + '/*.*[gG]')
         img_counts.append(len(images))
 
     return classes, img_counts
