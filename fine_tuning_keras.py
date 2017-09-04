@@ -80,7 +80,7 @@ if __name__ == '__main__':
         "--output_path",
         "-o",
         type=str,
-        default="./dataset/results/" + start_time + "/",
+        default="./results/" + start_time + "/",
         help="Output path"
     )
     parser.add_argument(
