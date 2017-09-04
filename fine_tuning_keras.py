@@ -21,7 +21,6 @@ import argparse
 import glob
 import sys
 from datetime import datetime
-import numpy as np
 
 
 #from smallcnn import save_history
