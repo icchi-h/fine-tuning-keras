@@ -21,6 +21,8 @@ kerasのVGGモデルをベースにdataset内の学習データをFine-tuningし
 ### kerasの実行環境を用意
 
 ```bash
+pip install Pillow
+pip install h5py
 pip install keras
 ```
 
