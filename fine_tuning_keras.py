@@ -56,13 +56,6 @@ def get_classes_img_count(path):
 
     return classes, img_counts
 
-def get_image_size(path):
-    """
-    引数のディレクトリ内で最初に見つかった画像ファイルのサイズを返却する関数
-    """
-
-    images = glob.glob(path + '*.*g', recursive=True)
-
 
 if __name__ == '__main__':
 
