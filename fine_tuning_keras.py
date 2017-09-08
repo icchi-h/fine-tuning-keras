@@ -89,10 +89,22 @@ if __name__ == '__main__':
         default="my-finetuning-model" + start_time + ".h5",
         help="Output model name"
     )
+    parser.add_argument(
+        "--output_label_name",
+        type=str,
+        default="my-finetuning-label" + start_time + ".txt",
+        help="Output label name"
+    )
+    parser.add_argument(
+        "--output_history_name",
+        type=str,
+        default= "my-finetuning-history" + start_time + ".txt",
+        help="Output history name"
+    )
     FLAGS, unparsed = parser.parse_known_args()
 
     if not os.path.exists(FLAGS.output_path):
-        os.mkdir(FLAGS.output_path)
+        os.makedirs(FLAGS.output_path)
 
 
     # Set Parameter
@@ -102,7 +114,7 @@ if __name__ == '__main__':
     nb_train_samples = sum(train_img_counts)
     nb_val_samples = sum(val_img_counts)
     nb_epoch = 50
-    nb_epoch = 2
+    nb_epoch = 1
     min_nb_epoch = 10
     batch_size = 50
     batch_size = 1
@@ -189,12 +201,23 @@ if __name__ == '__main__':
         callbacks=[cb_earlystopping, cb_modelCP])
         # callbacks=[cb_earlystopping, cb_tensorboard])
 
+    print()
+
+    # Output label
+    output_label_file = os.path.join(FLAGS.output_path+FLAGS.output_label_name)
+    f = open(output_label_file, 'w')
+    for item in classes:
+        f.write(item + "\n")
+    f.close()
+    print("Saved: label file '" + output_label_file + "'")
+
     # Output model
+    output_model_file = os.path.join(FLAGS.output_path, FLAGS.output_model_name)
     # model.save_weights(os.path.join(FLAGS.output_path, 'my-finetuning.h5'))
-    model.save(os.path.join(FLAGS.output_path, FLAGS.output_model_name))
-    print("Saved: model file '" + (FLAGS.output_path+FLAGS.output_model_name) + "'")
+    model.save(output_model_file)
+    print("Saved: model file '" + output_model_file + "'")
 
     # Output history
-    history_name_epoch = 'history_finetuning' + start_time + '_epoch.txt'
-    save_history(history, os.path.join(FLAGS.output_path, history_name_epoch))
-    print("Saved: learning log file ", history_name_epoch)
+    output_history_file = os.path.join(FLAGS.output_path, FLAGS.output_history_name)
+    save_history(history, output_history_file)
+    print("Saved: learning log file '", output_history_file + "'")
