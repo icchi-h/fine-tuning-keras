@@ -91,7 +91,7 @@ python fine_tuning_keras.py --output_model_name my-finetuning-model.h5
 | --train_data_path   | `./dataset/train_images/` |
 | --val_data_path     | `./dataset/test_images/`  |
 | --output_path       | `./dataset/results/`      |
-| --output_model_name | `my-finetuning-model.h5`  |
+| --output_model_name | `my-finetuning-model_<date>.h5`  |
 
 
 

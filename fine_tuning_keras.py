@@ -7,8 +7,8 @@ Reference: http://aidiary.hatenablog.com/entry/20170131/1485864665
 """
 
 __author__ = "Haruyuki Ichino <mail@icchi.me>"
-__version__ = "1.2"
-__date__    = "2017/08/21"
+__version__ = "1.3"
+__date__    = "2017/09/08"
 
 import os
 from keras.applications.vgg16 import VGG16
@@ -86,7 +86,7 @@ if __name__ == '__main__':
     parser.add_argument(
         "--output_model_name",
         type=str,
-        default="my-finetuning-model.h5",
+        default="my-finetuning-model" + start_time + ".h5",
         help="Output model name"
     )
     FLAGS, unparsed = parser.parse_known_args()
