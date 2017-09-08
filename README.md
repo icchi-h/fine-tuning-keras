@@ -95,19 +95,22 @@ python fine_tuning_keras.py --output_model_name my-finetuning-model.h5
 | --output_label_name   | `my-finetuning-label_<date>.h5`    |
 | --output_history_name | `my-finetuning-history_<date>.h5`  |
 
+##### output label format
+改行区切りでクラスを記述したtxtファイル
+
+```
+$ cat label.txt
+class1
+class2
+class3
+```
+
 
 
 #### prediction.py
 
 ```bash
-python prediction.py <target image> <model file>
-
-# e.g.
-python prediction.py ~/hoge.png dataset/results/my-finetuning-model.h5
+python predict.py <model file> <label file> <target file/directory>
 ```
 
-##### Options
-
-| Option              | Default parameter         |
-|:--------------------|:--------------------------|
-| --dataset_path      | `./dataset/train_images/` |
+認識対象がディレクトリの場合は、ディレクトリ構造を学習時の`test_images`と同様にする。
