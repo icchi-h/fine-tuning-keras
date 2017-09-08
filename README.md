@@ -86,12 +86,14 @@ python fine_tuning_keras.py --output_model_name my-finetuning-model.h5
 
 ##### Options
 
-| Option              | Default parameter         |
-|:--------------------|:--------------------------|
-| --train_data_path   | `./dataset/train_images/` |
-| --val_data_path     | `./dataset/test_images/`  |
-| --output_path       | `./dataset/results/`      |
-| --output_model_name | `my-finetuning-model_<date>.h5`  |
+| Option                | Default parameter                  |
+|:----------------------|:-----------------------------------|
+| --train_data_path     | `./dataset/train_images/`          |
+| --val_data_path       | `./dataset/test_images/`           |
+| --output_path         | `./dataset/results/`               |
+| --output_model_name   | `my-finetuning-model_<date>.h5`    |
+| --output_label_name   | `my-finetuning-label_<date>.h5`    |
+| --output_history_name | `my-finetuning-history_<date>.h5`  |
 
 
 
