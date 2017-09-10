@@ -89,10 +89,10 @@ python fine_tuning_keras.py [options]
 |:----------------------|:-----------------------------------|
 | --train_data_path     | `./dataset/train_images/`          |
 | --val_data_path       | `./dataset/test_images/`           |
-| --output_path         | `./dataset/results/`               |
+| --output_path         | `./results/`               |
 | --output_model_name   | `my-finetuning-model_<date>.h5`    |
-| --output_label_name   | `my-finetuning-label_<date>.h5`    |
-| --output_history_name | `my-finetuning-history_<date>.h5`  |
+| --output_label_name   | `my-finetuning-label_<date>.txt`    |
+| --output_history_name | `my-finetuning-history_<date>.txt`  |
 
 ##### output label format
 改行区切りでクラスを記述したtxtファイル
