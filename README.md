@@ -80,8 +80,7 @@ pip install keras
 #### fine_tuning_keras.py
 
 ```bash
-# sample
-python fine_tuning_keras.py --output_model_name my-finetuning-model.h5
+python fine_tuning_keras.py [options]
 ```
 
 ##### Options
