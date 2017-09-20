@@ -2,10 +2,10 @@
 Kerasを使ってVGG16モデルを元にFine-tuning
 
 * fine_tuning_keras.py  
-kerasのVGGモデルをベースにdataset内の学習データをFine-tuningして、modelファイル(.h5)を出力
+kerasのVGGモデルをベースにdataset内の学習データをFine-tuningして、model(.h5)・labelファイルを出力
 
 * prediction.py  
-上で生成したmodelを使って入力画像を識別
+上で生成したmodel・labelファイルを使って入力画像・ディレクトリ(画像を格納)を識別
 
 
 以下の記事で公開しているコードを改良。  
@@ -13,8 +13,9 @@ kerasのVGGモデルをベースにdataset内の学習データをFine-tuningし
 > <http://aidiary.hatenablog.com/entry/20170131/1485864665>
 
 * 識別クラスやサンプル数などの各種パラメータを学習データのディレクトリ構造から取得
+* 識別クラスを記述したラベルファイルを出力
 * 各種パラメータはオプションやコマンドライン引数で指定できるように
-* 重みだけでなくモデル構造も含めて出力するように
+* 重みだけでなくモデル構造も含めて出力する仕様に
 
 
 ## 使い方
