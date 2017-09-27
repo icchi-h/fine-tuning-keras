@@ -7,8 +7,8 @@ Reference: http://aidiary.hatenablog.com/entry/20170131/1485864665
 """
 
 __author__ = "Haruyuki Ichino <mail@icchi.me>"
-__version__ = "1.4"
-__date__    = "2017/09/08"
+__version__ = "1.5"
+__date__    = "2017/09/27"
 
 import os
 from keras.applications.vgg16 import VGG16
@@ -114,10 +114,8 @@ if __name__ == '__main__':
     nb_train_samples = sum(train_img_counts)
     nb_val_samples = sum(val_img_counts)
     nb_epoch = 50
-    nb_epoch = 1
-    min_nb_epoch = 10
+    min_nb_epoch = 3
     batch_size = 50
-    batch_size = 1
     if (batch_size > nb_train_samples):
         print("Error: バッチサイズが学習サンプル数よりも大きくなっています")
         sys.exit(1)
